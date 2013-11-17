@@ -1,0 +1,15 @@
+#buttonspace {
+	margin: 3em;
+	text-align: center;
+}
+
+
+#login {
+	font-family: "open sans";
+	background-color: 6eafd0;
+}
+
+#logout {
+	font-family: "open sans";
+	background-color: 6eafd0;
+}
