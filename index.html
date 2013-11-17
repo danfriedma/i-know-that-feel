@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="all" href="style.css" type="text/css" />
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" />-->
+    <script src="respond.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" media="all" href="responsive.gs.16col.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="SemantriaJavaScriptSDK.js" type="text/javascript"></script>
+    <script src="TestApp.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+
+    window.fbAsyncInit = function() {
+
+        $('#login').show(); 
+        $('#logout').hide(); 
+
+        FB.init({
+          appId      : '179538812246622',
+          channelUrl : '//{http://yournewintern.com.s3-website-us-east-1.amazonaws.com/index.html',
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+      }
+
+    $('document').ready(function(){
+
+        $('button#login').click(function() {
+           FB.login(function (response) {
+                console.log("login",response)
+                if (response.authResponse) {
+                    $('#login').hide();
+                    $('#logout').show();
+                    $('#post').show();
+                    $('#buttonspace').hide();
+                    $('#fetching').show();
+                    getInitialText();
+                  } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                  }
+              }, {"scope":"user_status"});
+                
+        });
+
+        $('button#logout').click(function() {
+            FB.logout(function(response) {
+               console.log("user has logged out"); // user is now logged out
+            });
+            $('.feel').remove();
+            $('#login').show();
+            $('#logout').hide();
+        });
+
+        $('button#post').click(function() {
+          var a = "My goodfeels: " + $(".goodfeel").text() + "\nMy badfeels: " + $(".badfeel").text() + "\n";
+          console.log(a);
+          /*FB.ui({
+          method: "feed",
+          name: a,
+          caption: "i know that feel",
+          description: "Finds the things that make you feel.",
+          link: "http://i-know-that-feel.com/"
+          })*/
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <div class="container row">
+        <header role="banner" class="row">
+              <h1>i know that feel<h1>
+              <p id="tag">Login to Facebook to see what gives you the feels</P>
+        </header>
+      <div id="fb-root"></div>
+      <main role="main" class="row">
+      <article class="col span_16">
+          <div id="buttonspace">
+            <button type="button" id="login">LOGIN</button>
+            <button type="button" id="post">POST ON FACEBOOK</button>
+            <button type="button" id="logout">LOGOUT</button>
+          </div>
+          <div id="fetching">
+            <p>Fetching...</p>
+          </div>
+      </article>
+
+      <article id="goodfeels" class="col span_8">
+          <h2>good feels<br></h2>
+      </article>
+      <article id="badfeels" class="col span_8">
+          <h2>bad feels<br></h2>
+      </article>
+
+          <!--
+            Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+            present a graphical Login button that triggers the FB.login() function when clicked. -->
+    </div>
+  </body>
+</html>

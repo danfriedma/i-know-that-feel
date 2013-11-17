@@ -133,25 +133,28 @@
 
 		overallTone /= contributors;
 
-		log("Overall sentiment score of: " + overallTone);
+		//log("Overall sentiment score of: " + overallTone);
 		goodFeels.sort(custom_compare).reverse();
 		badFeels.sort(custom_compare).reverse();
+
+		$('#fetching').hide();
+		$('#buttonspace').show();
+		$('h2').show();
 
 		console.log("GOOD FEELS");
 
 		for (var i=0;i<goodFeels.length;i++) {
- 			console.log(goodFeels[i].name + " " + goodFeels[i].score);
+ 			$("#goodfeels").append("<p class=\"goodfeel\">" + goodFeels[i].name + "</p>");
+ 			 console.log(goodFeels[i].score);
 		}
 
 		console.log("BAD FEELS!!!");
 
 		for (var i=0;i<badFeels.length;i++) {
- 			console.log(badFeels[i].name + " " + badFeels[i].score);
+ 			$("#badfeels").append("<p class=\"badfeel\">" + badFeels[i].name + "</p>");
+ 			console.log(badFeels[i].score);
 		}
 
-
-
-		//for()
 
 	}
 
@@ -162,7 +165,7 @@
 		var analyticData = [];
 		var timeout = setInterval(function() {
 			//console.log("welcome to hell");
-			log("Retrieving your processed results...");
+			//log("Retrieving your processed results...");
 			// Requests processed results from Semantria service
 			var processedDocuments = SemantriaActiveSession.getProcessedDocuments();
 
@@ -181,7 +184,6 @@
 
 	window.runTestApp = function(initialTexts) {
 
-		log("<h1>things i'd say if i were on acid</h1>");
 		// session is a global object
 		SemantriaActiveSession = new Semantria.Session(consumerKey, consumerSecret, "myApp");
 		SemantriaActiveSession.override({
