@@ -1,7 +1,22 @@
+html {
+	font-family: 'Roboto', sans-serif;
+}
+
+article, header {
+	vertical-align:middle;
+	text-align: center;
+
+}
+
+p {
+	font-size: .5em;
+}
+
 #buttonspace {
-	margin: 3em;
+	padding: 3em;
 	text-align: center;
 }
+
 
 
 #login {
@@ -10,6 +25,7 @@
 }
 
 #logout {
+	display: none;
 	font-family: "open sans";
 	background-color: 6eafd0;
 }
