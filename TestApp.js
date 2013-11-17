@@ -141,21 +141,24 @@
 		$('#buttonspace').show();
 		$('h2').show();
 
+		var string;
 		console.log("GOOD FEELS");
+		string = string + "My good feels: ";
 
 		for (var i=0;i<goodFeels.length;i++) {
  			$("#goodfeels").append("<p class=\"goodfeel\">" + goodFeels[i].name + "</p>");
  			 console.log(goodFeels[i].score);
+ 			 string = string + goodFeels[i].name + " ";
 		}
 
 		console.log("BAD FEELS!!!");
+		string = string + "My bad feels: ";
 
 		for (var i=0;i<badFeels.length;i++) {
  			$("#badfeels").append("<p class=\"badfeel\">" + badFeels[i].name + "</p>");
  			console.log(badFeels[i].score);
+ 			string = string + badFeels[i].name + " ";
 		}
-
-
 	}
 
 	function receiveResponse(entitiesCount) {
