@@ -1,3 +1,5 @@
+@import url("reset.css");
+
 html, body {
 	font-family: 'Roboto', sans-serif;
 	color: fffdd8;
@@ -37,6 +39,11 @@ cursor: pointer;
 background-image: none;
 border: 1px solid transparent;
 border-radius: 4px;
+}
+
+.goodfeel, .badfeel {
+	margin-bottom: 1em;
+	font-size: 1.3em;
 }
 
 #tag {

@@ -1,7 +1,7 @@
 ;(function (){
 	// the consumer key and secret
-	var consumerKey = "34352e48-0544-447b-aac4-f5e584429704",
-		consumerSecret = "aa014fff-f447-4f39-b0f0-5b39373d845d";
+	var consumerKey = "f0d4193f-48db-469b-84fc-6a4679aaf974",
+		consumerSecret = "d28a7b8d-d02e-49b6-893f-ed7ae390739c";
 
 	function log(message) {
 		document.body.innerHTML += message + "<br/>";
@@ -28,8 +28,6 @@
 	        }
 	    )
 	};
-
-
 
 	function processResponse(analyticData) {
 		var goodFeels = [];
@@ -140,24 +138,19 @@
 		$('#fetching').hide();
 		$('#buttonspace').show();
 		$('h2').show();
-
-		var string;
+		
 		console.log("GOOD FEELS");
-		string = string + "My good feels: ";
 
 		for (var i=0;i<goodFeels.length;i++) {
  			$("#goodfeels").append("<p class=\"goodfeel\">" + goodFeels[i].name + "</p>");
  			 console.log(goodFeels[i].score);
- 			 string = string + goodFeels[i].name + " ";
 		}
 
 		console.log("BAD FEELS!!!");
-		string = string + "My bad feels: ";
 
 		for (var i=0;i<badFeels.length;i++) {
  			$("#badfeels").append("<p class=\"badfeel\">" + badFeels[i].name + "</p>");
  			console.log(badFeels[i].score);
- 			string = string + badFeels[i].name + " ";
 		}
 	}
 
@@ -182,7 +175,7 @@
 				clearInterval(timeout);
 				processResponse(analyticData);
 			} 
-		}, 50);
+		}, 60);
 	}
 
 	window.runTestApp = function(initialTexts) {

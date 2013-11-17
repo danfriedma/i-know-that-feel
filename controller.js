@@ -43,9 +43,12 @@
             FB.logout(function(response) {
                console.log("user has logged out"); // user is now logged out
             });
-            $('.feel').remove();
+            $('.goodfeel').remove();
+            $('.badfeel').remove();
             $('#login').show();
             $('#logout').hide();
+            $('h2').hide();
+            $('#post').hide();
         });
 
         $('button#post').click(function() {
