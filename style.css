@@ -2,22 +2,25 @@ html {
 	font-family: 'Roboto', sans-serif;
 }
 
+article, header {
+	vertical-align:middle;
+	text-align: center;
+
+}
 
 #buttonspace {
-	margin: 3em;
+	padding: 3em;
 	text-align: center;
 }
 
 
+
 #login {
-	text-align: center;
 	font-family: "open sans";
 	background-color: 6eafd0;
 }
 
 #logout {
-	text-align: center;
-	position:;
 	display: none;
 	font-family: "open sans";
 	background-color: 6eafd0;
