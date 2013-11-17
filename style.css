@@ -8,6 +8,10 @@ article, header {
 
 }
 
+p {
+	font-size: .5em;
+}
+
 #buttonspace {
 	padding: 3em;
 	text-align: center;
